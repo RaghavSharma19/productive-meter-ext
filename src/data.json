@@ -1,0 +1,28 @@
+{
+    "webpageData": [
+      {
+        "url": "https://www.example.com/article",
+        "domain": "example.com",
+        "title": "Example Article",
+        "startTime": "2025-02-03T10:00:00Z",
+        "endTime": "2025-02-03T10:15:00Z",
+        "duration": 900
+      },
+      {
+        "url": "https://www.animeforum.com/discussion",
+        "domain": "animeforum.com",
+        "title": "Anime Discussion Thread",
+        "startTime": "2025-02-03T10:20:00Z",
+        "endTime": "2025-02-03T10:45:00Z",
+        "duration": 1500
+      },
+      {
+        "url": "https://www.github.com/RaghavRepo",
+        "domain": "github.com",
+        "title": "Raghav's GitHub Repository",
+        "startTime": "2025-02-03T11:00:00Z",
+        "endTime": "2025-02-03T11:30:00Z",
+        "duration": 1800
+      }
+    ]
+  }
