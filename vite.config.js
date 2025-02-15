@@ -12,7 +12,7 @@ export default defineConfig({
         if (fs.existsSync(manifestPath)) {
           const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
           manifest.background.service_worker = "assets/background.js"; // Update the path
-          fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+          fs.writeFileSync(manifestPath, JSON.stringify(manifest, null,2));
         }
       }
     }
@@ -31,3 +31,4 @@ export default defineConfig({
     },
   }
 });
+ 

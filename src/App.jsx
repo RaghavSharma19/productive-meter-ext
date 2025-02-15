@@ -42,3 +42,7 @@ function App() {
 }
 
 export default App;
+
+
+//service classs -> log 24/7 data 
+//once new entry created 
