@@ -28,7 +28,7 @@ function App() {
   return (
     <div>
       <h2>Time Spent on Websites</h2>
-      <div style={{ width: '400px', margin: 'auto' }}>
+      <div style={{ width: '400px', margin: 'auto' }} >
         <Pie data={chartData} />
       </div>
 
