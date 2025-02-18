@@ -9,9 +9,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function App() {
-  // State for existing website data and new website input
+  // Convert static data into state for dynamic updates
   const [webpageData, setWebpageData] = useState(data1.webpageData);
-  const [newWebsite, setNewWebsite] = useState('');
 
   // Prepare chart labels and durations from state
   const labels = webpageData.map((item) => item.title);
@@ -61,12 +60,30 @@ function App() {
     justifyContent: 'center'
   };
 
-  // Function to add a new website entry
-  const addNewWebsite = () => {
-    if (!newWebsite.trim()) return; // Prevent empty entries
-    const newEntry = { title: newWebsite.trim(), duration: 0 };
-    setWebpageData([...webpageData, newEntry]);
-    setNewWebsite('');
+  const deleteBtn = {
+    background: 'red',
+    color: 'white',
+    border: 'none',
+    borderRadius: '4px',
+    padding: '4px 8px',
+    cursor: 'pointer'
+  };
+  //styling for list of webpages 
+  const listStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '8px 0',
+    borderBottom: '1px solid #ccc'
+  };
+
+  const resetButton = {
+    background: 'orange',
+    color: 'white',
+    border: 'none',
+    borderRadius: '4px',
+    padding: '8px 16px',
+    cursor: 'pointer'
   };
 
   // Delete a website entry by index
@@ -87,16 +104,15 @@ function App() {
 
   return (
     <div>
-      <h2>Time Spent on Websites</h2>
+      <h2>Productivity Meter</h2>
+      
       {/* Input and add button */}
       <div style={inputGroupStyle}>
         <input 
           placeholder="Add websites to track" 
           style={inputFieldStyle}
-          value={newWebsite}
-          onChange={(e) => setNewWebsite(e.target.value)}
         />
-        <button style={addButtonStyle} onClick={addNewWebsite}>
+        <button style={addButtonStyle}>
           <i className="bi bi-cloud-plus"></i>
         </button>
       </div>
@@ -109,49 +125,21 @@ function App() {
       {/* List of website entries with Delete option */}
       <div style={{ marginTop: '16px' }}>
         {webpageData.map((element, index) => (
-          <div 
-            key={index} 
-            style={{
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'space-between', 
-              padding: '8px 0', 
-              borderBottom: '1px solid #ccc'
-            }}
-          >
+          <div key={index} style={listStyle}>
+            
             <p style={{ margin: 0 }}>
               {element.title} - {(element.duration / 3600).toFixed(2)} hours
             </p>
-            <button 
-              style={{
-                background: 'red',
-                color: 'white',
-                border: 'none',
-                borderRadius: '4px',
-                padding: '4px 8px',
-                cursor: 'pointer'
-              }}
-              onClick={() => deleteEntry(index)}
-            >
+            <button style={deleteBtn} onClick={() => deleteEntry(index)}>
               Delete
             </button>
+          
           </div>
         ))}
       </div>
 
-      {/* Reset Data Button */}
       <div style={{ textAlign: 'center', marginTop: '16px' }}>
-        <button 
-          style={{
-            background: 'orange',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            padding: '8px 16px',
-            cursor: 'pointer'
-          }}
-          onClick={resetData}
-        >
+        <button style={resetButton} onClick={resetData} >
           Reset Data
         </button>
       </div>
